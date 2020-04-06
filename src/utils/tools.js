@@ -1,3 +1,7 @@
+/**
+ * 解析url参数
+ * @param {String} url 地址
+ */
 export function getUrlParams(url) {
   const regx = new RegExp(/.*?\?\w+=\w+(&\w+=\w+)*$/);
   if (!regx.test(url)) return {};
