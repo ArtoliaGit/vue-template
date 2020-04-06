@@ -24,6 +24,8 @@ module.exports = {
     'arrow-parens': 'off',
     'import/no-extraneous-dependencies': 'off',
     'prefer-destructuring': 'off',
+    'vue/singleline-html-element-content-newline': 'off',
+    'import/extensions': 'off',
   },
 
 };

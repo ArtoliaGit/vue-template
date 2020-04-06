@@ -1,3 +1,4 @@
 vue.config.js
-./mock/*
-./build/*
+mock/*
+build/*
+src/assets/*

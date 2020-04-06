@@ -1,6 +1,6 @@
 import axios from 'axios';
 import dayjs from 'dayjs';
-
+import { Message } from 'element-ui';
 
 class HttpRequest {
   constructor(baseUrl = '/') {
@@ -43,6 +43,11 @@ class HttpRequest {
       return { data, status };
     }, (error) => {
       const errorInfo = error.response;
+      Message({
+        message: '服务错误',
+        type: 'error',
+        duration: 5 * 1000,
+      });
       this.addErrorLog(errorInfo);
       return Promise.reject(error);
     });
