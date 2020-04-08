@@ -15,8 +15,11 @@
             v-model="form.phone"
             placeholder="请输入常用手机号"
           >
-            <el-select v-model="form.country"
-                       slot="prepend" placeholder="" style="width: 120px;"
+            <el-select
+              v-model="form.country"
+              slot="prepend"
+              placeholder=""
+              style="width: 120px;"
             >
               <el-option
                 v-for="item in countryList"
@@ -32,8 +35,11 @@
             v-model="form.valicode"
             placeholder="请输入验证码"
           >
-            <el-button slot="append" @click="handleValicode"
-                       :class="{ 'valicode-btn': !disableGetCode }" :disabled="disableGetCode"
+            <el-button
+              slot="append"
+              @click="handleValicode"
+              :class="{ 'valicode-btn': !disableGetCode }"
+              :disabled="disableGetCode"
             >
               <span class="valicode-text">{{ valicodeText }}</span>
             </el-button>
