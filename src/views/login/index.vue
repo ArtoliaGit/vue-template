@@ -1,17 +1,20 @@
 <template>
   <div class="page">
-    <password-login />
+    <!-- <password-login /> -->
+    <phone-login />
   </div>
 </template>
 
 <script>
 import { login } from '@/api/login';
-import PasswordLogin from '@/components/login/PasswordLogin';
+// import PasswordLogin from '@/components/login/password-login';
+import PhoneLogin from '@/components/login/phone-login';
 
 export default {
   name: 'Login',
   components: {
-    PasswordLogin,
+    // PasswordLogin,
+    PhoneLogin,
   },
   data() {
     return {
