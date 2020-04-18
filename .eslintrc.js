@@ -26,6 +26,7 @@ module.exports = {
     'prefer-destructuring': 'off',
     'vue/singleline-html-element-content-newline': 'off',
     'import/extensions': 'off',
+    'vue/max-attributes-per-line': 'off',
   },
 
 };

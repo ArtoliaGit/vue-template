@@ -1,5 +1,5 @@
 <template>
-  <div id="login">
+  <div class="login">
     <el-card class="login-card">
       <div>
         <span>系统登录</span>
@@ -84,7 +84,11 @@ export default {
   methods: {
     handleSubmit: debounce(function anonymous() {
       // TODO 登录事件
-      this.$message.success('登录成功');
+      this.$refs.form.validate(valid => {
+        if (valid) {
+          this.$message.success('登录成功');
+        }
+      });
     }, 100),
     handleClickEye() {
       this.hidePassword = !this.hidePassword;
