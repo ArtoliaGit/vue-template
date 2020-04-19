@@ -6,4 +6,8 @@ export default {
     dev: '/',
     pro: '/',
   },
+  /**
+   * @description 登录方式 1.密码登录 2.验证码登录
+   */
+  loginType: 1,
 };

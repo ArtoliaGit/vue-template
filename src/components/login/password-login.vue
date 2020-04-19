@@ -57,6 +57,7 @@
 
 <script>
 import { debounce } from 'lodash';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'PasswordLogin',
@@ -82,11 +83,17 @@ export default {
     };
   },
   methods: {
+    ...mapActions(['handleLogin', 'handleGetUserInfo']),
     handleSubmit: debounce(function anonymous() {
       // TODO 登录事件
       this.$refs.form.validate(valid => {
         if (valid) {
-          this.$message.success('登录成功');
+          this.handleLogin(this.form).then(() => {
+            this.$message.success('登录成功');
+            this.handleGetUserInfo().then(() => {
+              this.$router.push({ name: 'Login' });
+            });
+          });
         }
       });
     }, 100),

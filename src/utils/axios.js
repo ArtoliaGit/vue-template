@@ -1,6 +1,7 @@
 import axios from 'axios';
 import dayjs from 'dayjs';
 import { Message } from 'element-ui';
+import { getTokenFromStorage } from '@/utils/common';
 
 class HttpRequest {
   constructor(baseUrl = '/') {
@@ -26,9 +27,11 @@ class HttpRequest {
      * @description 请求拦截
      */
     instance.interceptors.request.use((config) => {
-      // TODO 请求时加上token
-      config.headers['X-Token'] = '';
-      console.log(config);
+      // 请求时加上token
+      const token = getTokenFromStorage();
+      if (token) {
+        config.headers['X-Token'] = token;
+      }
       return config;
     }, (error) => {
       console.log(error);
@@ -40,7 +43,7 @@ class HttpRequest {
      */
     instance.interceptors.response.use((res) => {
       const { data, status } = res;
-      return { data, status };
+      return data;
     }, (error) => {
       const errorInfo = error.response;
       Message({

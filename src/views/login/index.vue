@@ -1,33 +1,31 @@
 <template>
   <div class="page">
-    <!-- <password-login /> -->
-    <phone-login />
+    <password-login v-if="loginType === 1" />
+    <phone-login v-if="loginType === 2" />
   </div>
 </template>
 
 <script>
-import { login } from '@/api/login';
-// import PasswordLogin from '@/components/login/password-login';
+import config from '@/config';
+import PasswordLogin from '@/components/login/password-login';
 import PhoneLogin from '@/components/login/phone-login';
 
 export default {
   name: 'Login',
   components: {
-    // PasswordLogin,
+    PasswordLogin,
     PhoneLogin,
   },
   data() {
     return {
-      userId: 1,
+      loginType: config.loginType,
     };
   },
   mounted() {
-    this.handleLogin();
+
   },
   methods: {
-    handleLogin() {
-      login({ userId: this.userId });
-    },
+
   },
 };
 </script>
